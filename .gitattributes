@@ -1,0 +1,2 @@
+data/raw/taxi_trips_2023-03.parquet filter=lfs diff=lfs merge=lfs -text
+data/staging/data.duckdb filter=lfs diff=lfs merge=lfs -text
