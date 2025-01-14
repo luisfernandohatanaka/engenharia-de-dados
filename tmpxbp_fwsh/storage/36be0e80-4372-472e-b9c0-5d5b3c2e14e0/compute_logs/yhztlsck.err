@@ -1,0 +1,20 @@
+[32m2025-01-14 19:42:37 -0300[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 36be0e80-4372-472e-b9c0-5d5b3c2e14e0 - 19012 - LOGS_CAPTURED - Started capturing logs in process (pid: 19012).
+[32m2025-01-14 19:42:37 -0300[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 36be0e80-4372-472e-b9c0-5d5b3c2e14e0 - 19012 - taxi_zones_file - STEP_START - Started execution of step "taxi_zones_file".
+[32m2025-01-14 19:42:49 -0300[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 36be0e80-4372-472e-b9c0-5d5b3c2e14e0 - 19012 - taxi_zones_file - STEP_FAILURE - Execution of step "taxi_zones_file" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "taxi_zones_file"::
+
+NameError: name 'constants' is not defined
+
+Stack Trace:
+  File "c:\users\luisf\appdata\local\programs\python\python39\lib\site-packages\dagster\_core\execution\plan\utils.py", line 54, in op_execution_error_boundary
+    yield
+  File "c:\users\luisf\appdata\local\programs\python\python39\lib\site-packages\dagster\_utils\__init__.py", line 490, in iterate_with_context
+    next_output = next(iterator)
+  File "c:\users\luisf\appdata\local\programs\python\python39\lib\site-packages\dagster\_core\execution\plan\compute_generator.py", line 140, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "c:\users\luisf\appdata\local\programs\python\python39\lib\site-packages\dagster\_core\execution\plan\compute_generator.py", line 128, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "C:\Users\luisf\dagster_university\dagster_university\assets\trips.py", line 74, in taxi_zones_file
+    with open(constants.TAXI_ZONES_FILE_PATH, "wb") as output_file:
+[0m
