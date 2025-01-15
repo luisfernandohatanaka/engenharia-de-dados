@@ -2,10 +2,10 @@ from dagster import asset
 import plotly.express as px
 import plotly.io as pio
 import geopandas as gpd
-
 import duckdb
 import os
-from . import constants
+import requests
+import json
 
 @asset(
     deps=["taxi_trips", "taxi_zones"]
@@ -29,14 +29,27 @@ def manhattan_stats() -> None:
     trips_by_zone["geometry"] = gpd.GeoSeries.from_wkt(trips_by_zone["geometry"])
     trips_by_zone = gpd.GeoDataFrame(trips_by_zone)
 
-    with open(constants.MANHATTAN_STATS_FILE_PATH, 'w') as output_file:
-        output_file.write(trips_by_zone.to_json())
+    # Enviar para o S3
+    s3_url = "https://meu-projeto-arquivos-pesados.s3.us-east-2.amazonaws.com/manhattan_stats.json"
+    
+    # Usando o requests para enviar o arquivo como JSON para o S3 (a URL precisa ser configurada corretamente no S3 para aceitação)
+    response = requests.put(s3_url, data=trips_by_zone.to_json())
+    if response.status_code != 200:
+        raise Exception("Falha ao enviar o arquivo para o S3.")
 
 @asset(
     deps=["manhattan_stats"],
 )
 def manhattan_map() -> None:
-    trips_by_zone = gpd.read_file(constants.MANHATTAN_STATS_FILE_PATH)
+    # Usando o S3 diretamente para carregar o arquivo
+    s3_url = "https://meu-projeto-arquivos-pesados.s3.us-east-2.amazonaws.com/manhattan_stats.json"
+    
+    # Carregar o JSON do S3 para o GeoDataFrame
+    response = requests.get(s3_url)
+    if response.status_code != 200:
+        raise Exception("Falha ao carregar o arquivo do S3.")
+    
+    trips_by_zone = gpd.read_file(response.text)
 
     fig = px.choropleth_mapbox(trips_by_zone,
         geojson=trips_by_zone.geometry.__geo_interface__,
@@ -50,4 +63,6 @@ def manhattan_map() -> None:
         labels={'num_trips': 'Number of Trips'}
     )
 
-    pio.write_image(fig, constants.MANHATTAN_MAP_FILE_PATH)
+    # Enviar imagem gerada para o S3
+    s3_image_url = "https://meu-projeto-arquivos-pesados.s3.us-east-2.amazonaws.com/manhattan_map.png"
+    pio.write_image(fig, s3_image_url)

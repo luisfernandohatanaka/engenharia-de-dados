@@ -11,23 +11,29 @@ def taxi_trips_file() -> None:
       The raw parquet files for the taxi trips dataset. Sourced from the NYC Open Data portal.
     """
     month_to_fetch = '2023-03'
+    # Link direto do S3
     raw_trips = requests.get(
-        f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{month_to_fetch}.parquet"
+        f"https://meu-projeto-arquivos-pesados.s3.us-east-2.amazonaws.com/yellow_tripdata_{month_to_fetch}.parquet"
     )
 
+    # Caminho local onde o arquivo será salvo
     with open(constants.TAXI_TRIPS_TEMPLATE_FILE_PATH.format(month_to_fetch), "wb") as output_file:
         output_file.write(raw_trips.content)
+
 @asset
 def taxi_zones_file() -> None:
     """
       The raw CSV file for the taxi zones dataset. Sourced from the NYC Open Data portal.
     """
+    # Link direto do S3
     raw_taxi_zones = requests.get(
-        "https://data.cityofnewyork.us/api/views/755u-8jsi/rows.csv?accessType=DOWNLOAD"
+        "https://meu-projeto-arquivos-pesados.s3.us-east-2.amazonaws.com/taxi_zones_file.csv"
     )
 
+    # Caminho local onde o arquivo será salvo
     with open(constants.TAXI_ZONES_FILE_PATH, "wb") as output_file:
         output_file.write(raw_taxi_zones.content)
+
 @asset(
     deps=["taxi_trips_file"]
 )
@@ -61,6 +67,7 @@ def taxi_trips() -> None:
         max_retries=10,
     )
     conn.execute(query)
+
 @asset(
     deps=["taxi_zones_file"]
 )
