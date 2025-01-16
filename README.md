@@ -10,7 +10,7 @@ A pipeline realiza as seguintes etapas:
 
  - Processamento e agregação: Cria tabelas agregadas que calculam o número de viagens por zona e horário.
 
- - Visualização: Utiliza Plotly e GeoPandas para gerar um mapa de calor interativo que exibe as zonas de táxi em Manhattan, com base no número de viagens realizadas em cada área.
+ - Visualização: Utiliza Plotly e GeoPandas para gerar um mapa de calor interativo que exibe as zonas de táxi em Manhattan, com base no número de viagens realizadas em cada área (link canto superior direito).
 
  - Alterações Recentes: Recentemente, o pipeline foi ajustado para usar links diretos do Amazon S3 em vez de arquivos locais, garantindo maior flexibilidade e escalabilidade no acesso aos dados armazenados.
 
