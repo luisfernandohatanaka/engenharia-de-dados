@@ -1,33 +1,22 @@
-# dagster_university
+Projeto: Análise e Visualização de Dados de Táxis de Nova York
+Este projeto consiste na criação de um pipeline de dados utilizando Dagster, que coleta e processa dados de táxis de Nova York para gerar insights sobre as rotas mais frequentadas e os horários de maior movimento.
 
-This is a [Dagster](https://dagster.io/) project made to accompany Dagster University coursework.
+A análise é realizada a partir de dois conjuntos de dados:
+ - Dados de viagens de táxis: Inclui informações sobre o percurso, distância, número de passageiros e valores totais das corridas.
+ - Dados de zonas de táxis: Contém informações sobre as zonas de coleta e entrega dos passageiros em Nova York.
 
-## Getting started
+A pipeline realiza as seguintes etapas:
+ - Coleta e processamento de dados: Utiliza APIs públicas para obter arquivos de dados brutos no formato Parquet e CSV e os armazena em um banco de dados DuckDB.
 
-First, install your Dagster code location as a Python package by running the command below in your terminal. By using the --editable (`-e`) flag, pip will install your Python package in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply.
+ - Processamento e agregação: Cria tabelas agregadas que calculam o número de viagens por zona e horário.
 
-```bash
-pip install -e ".[dev]"
-```
+ - Visualização: Utiliza Plotly e GeoPandas para gerar um mapa de calor interativo que exibe as zonas de táxi em Manhattan, com base no número de viagens realizadas em cada área.
 
-Duplicate the `.env.example` file and rename it to `.env`.
+ - Alterações Recentes: Recentemente, o pipeline foi ajustado para usar links diretos do Amazon S3 em vez de arquivos locais, garantindo maior flexibilidade e escalabilidade no acesso aos dados armazenados.
 
-Then, start the Dagster UI web server:
-
-```bash
-dagster dev
-```
-
-Open http://localhost:3000 with your browser to see the project.
-
-## Development
-
-### Adding new Python dependencies
-
-You can specify new Python dependencies in `setup.py`.
-
-## Deploy on Dagster Cloud
-
-The easiest way to deploy your Dagster project is to use Dagster Cloud.
-
-Check out the [Dagster Cloud Documentation](https://docs.dagster.cloud) to learn more.
+Tecnologias utilizadas:
+ - Dagster: Orquestração de pipelines de dados.
+ - DuckDB: Banco de dados SQL de alto desempenho para análise de dados. 
+ - Plotly e GeoPandas: Bibliotecas para visualização e análise geoespacial.
+ - Amazon S3: Armazenamento de grandes arquivos de dados.
+Esse projeto é uma ótima demonstração de como usar tecnologias de processamento de dados em grande escala para extrair e visualizar insights valiosos de dados do mundo real. 
