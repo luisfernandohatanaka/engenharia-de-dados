@@ -1,12 +1,30 @@
-# 📊 Guia Completo para Entrevistas de Análise de Dados
+# 📊 Guia Completo para Entrevistas de Análise de Dados e Data Engineering
 
-> Material abrangente para preparação em entrevistas técnicas focadas em SQL, Python/Pandas e conceitos de banco de dados
+> Material abrangente para preparação em entrevistas técnicas focadas em SQL, Python/Pandas, conceitos de banco de dados e **Data Engineering**
 
 ## 🎯 Sobre Este Repositório
 
-Este repositório contém um conjunto completo de guias, exemplos práticos e exercícios para preparação em entrevistas de análise de dados, engenharia de dados e ciência de dados. O material foi desenvolvido com foco nos conceitos mais frequentemente avaliados em processos seletivos da área.
+Este repositório contém um conjunto completo de guias, exemplos práticos e exercícios para preparação em entrevistas de **análise de dados**, **engenharia de dados** e **ciência de dados**. O material foi desenvolvido com foco nos conceitos mais frequentemente avaliados em processos seletivos da área.
 
 ## 📚 Conteúdo do Repositório
+
+### 🏗️ **PARA DATA ENGINEERING:** `data_engineering_guide.py`
+**Pipeline ETL, Big Data, Cloud e Streaming:**
+- ⚙️ **Design de Pipelines ETL**: Extractor, Transformer, Loader patterns
+- 📦 **Processamento em Batch**: Chunks, paralelização, otimização
+- ✅ **Data Quality**: Validação, monitoramento, alertas
+- 🏛️ **Modelagem de Dados**: Star Schema, SCD Type 2, Data Warehouse
+- 📊 **Monitoramento**: SLAs, métricas, dashboards
+- 🌊 **Streaming Analytics**: Kafka, Flink, arquitetura Lambda/Kappa
+- 🗄️ **Data Lake**: Arquitetura Medallion (Bronze/Silver/Gold)
+- 🚀 **Performance**: Spark optimization, particionamento
+- 🎯 **Cenários de Entrevista**: Design de sistemas reais
+
+**Por que é importante:**
+- Foco em arquitetura e escalabilidade
+- Tecnologias modernas (Spark, Kafka, Cloud)
+- Cenários práticos de design de sistema
+- Conceitos de Big Data e streaming
 
 ### 1. 🗄️ SQL Avançado (`sql_guide_completo.sql`)
 **Conceitos essenciais para entrevistas:**
@@ -86,7 +104,22 @@ Este repositório contém um conjunto completo de guias, exemplos práticos e ex
 
 ## 🚀 Como Usar Este Material
 
-### Para Candidatos a Vagas
+### Para Candidatos a Data Engineering
+```python
+# 1. Foque no guia específico de Data Engineering
+🏗️ Execute: data_engineering_guide.py
+📚 Estude: Pipelines ETL, Spark, Kafka, Cloud
+🎯 Pratique: Cenários de design de sistema
+
+# 2. Complemente com SQL avançado
+💻 Execute: sql_guide_completo.sql
+🔍 Foque em: Window functions, CTEs, performance
+
+# 3. Fundamentos Python para automação
+🐍 Revise: python_fundamentals.py (POO, concorrência)
+```
+
+### Para Candidatos a Data Analysis
 ```python
 # 1. Estude os conceitos fundamentais
 📖 Leia: conceitos_banco_dados.md
@@ -108,40 +141,87 @@ Este repositório contém um conjunto completo de guias, exemplos práticos e ex
 - Adapte os cenários para o contexto da sua empresa
 - Observe o raciocínio, não apenas o código final
 
-## 📝 Roteiro de Estudos Recomendado
+## 📝 Roteiro de Estudos por Área
 
-### Semana 1-2: Fundamentos
+### 🏗️ **Data Engineering Track (6-8 semanas)**
+#### Semana 1-2: Fundamentos
+- [ ] Conceitos de ETL e pipelines
+- [ ] Python para automação e APIs
+- [ ] SQL para processamento de dados
+
+#### Semana 3-4: Big Data & Cloud
+- [ ] Apache Spark fundamentals
+- [ ] Apache Kafka e streaming
+- [ ] Cloud platforms (AWS/GCP/Azure)
+
+#### Semana 5-6: Arquitetura & Design
+- [ ] Data Lake vs Data Warehouse
+- [ ] Microservices para dados
+- [ ] Monitoramento e observabilidade
+
+#### Semana 7-8: Prática Avançada
+- [ ] Design de sistemas complexos
+- [ ] Otimização de performance
+- [ ] Cenários de recuperação
+
+### 📊 **Data Analysis Track (4-6 semanas)**
+#### Semana 1-2: Fundamentos
 - [ ] Python básico e estruturas de dados
 - [ ] SQL básico e agregações
 - [ ] Pandas para manipulação de dados
 
-### Semana 3-4: Conceitos Avançados
+#### Semana 3-4: Conceitos Avançados
 - [ ] Window functions e CTEs
 - [ ] POO e engenharia de software
 - [ ] Conceitos de banco de dados
 
-### Semana 5-6: Prática Intensiva
+#### Semana 5-6: Prática Intensiva
 - [ ] Exercícios práticos de entrevista
 - [ ] Simulação de cenários reais
 - [ ] Revisão e refinamento
 
-## 🎯 Principais Tópicos por Nível
+## 🎯 Principais Tópicos por Área e Nível
 
-### 👶 **Júnior (0-2 anos)**
+### 🏗️ **Data Engineering**
+
+#### 👶 **Júnior (0-2 anos)**
+**Foque em:**
+- ETL básico (Extract, Transform, Load)
+- SQL para processamento de dados
+- Python para automação
+- Conceitos de data warehouse
+
+#### 👨‍💼 **Pleno (2-5 anos)**
+**Domine:**
+- Apache Spark para big data
+- Apache Kafka para streaming
+- Cloud platforms (AWS/GCP/Azure)
+- Data quality e monitoramento
+
+#### 🧙‍♂️ **Sênior (5+ anos)**
+**Expertise em:**
+- Arquitetura de dados complexa
+- Performance tuning em escala
+- Design de sistemas distribuídos
+- Data governance e compliance
+
+### 📊 **Data Analysis**
+
+#### 👶 **Júnior (0-2 anos)**
 **Foque em:**
 - SQL básico (SELECT, WHERE, GROUP BY)
 - Pandas fundamentais (read_csv, groupby, merge)
 - Python básico (listas, loops, funções)
 - Conceitos de normalização
 
-### 👨‍💼 **Pleno (2-5 anos)**
+#### 👨‍💼 **Pleno (2-5 anos)**
 **Domine:**
 - Window functions e CTEs
 - Pandas avançado (apply, pivot, datetime)
 - POO e tratamento de erros
 - Índices e performance
 
-### 🧙‍♂️ **Sênior (5+ anos)**
+#### 🧙‍♂️ **Sênior (5+ anos)**
 **Expertise em:**
 - Otimização de queries complexas
 - Arquitetura de dados
@@ -184,19 +264,19 @@ Este repositório contém um conjunto completo de guias, exemplos práticos e ex
 
 ## 🔥 Problemas Mais Frequentes em Entrevistas
 
+### 🏗️ **Data Engineering**
+1. **ETL Design** - Pipelines de transformação de dados
+2. **Data Architecture** - Design de data lakes e warehouses
+3. **Performance Optimization** - Otimização de pipelines Spark
+4. **Streaming Data** - Processamento em tempo real com Kafka
+5. **System Design** - Arquitetura de sistemas de dados
+
 ### 📊 **Analytics/Data Science**
 1. **Customer Cohort Analysis** - Retenção por coorte
 2. **RFM Segmentation** - Segmentação de clientes
 3. **Funnel Analysis** - Conversão por etapas
 4. **A/B Testing** - Análise estatística de experimentos
 5. **Time Series** - Sazonalidade e tendências
-
-### 🏗️ **Data Engineering**
-1. **ETL Design** - Pipelines de transformação
-2. **Data Quality** - Detecção de anomalias
-3. **Performance Optimization** - Otimização de queries
-4. **Schema Design** - Modelagem dimensional
-5. **Streaming Data** - Processamento em tempo real
 
 ### 💼 **Business Intelligence**
 1. **KPI Definition** - Métricas de negócio
@@ -207,17 +287,23 @@ Este repositório contém um conjunto completo de guias, exemplos práticos e ex
 
 ## 🛠️ **Ferramentas e Tecnologias**
 
-### Essenciais
-- **SQL**: PostgreSQL, MySQL, SQL Server
-- **Python**: Pandas, NumPy, Matplotlib
-- **Excel**: Tabelas dinâmicas, PowerQuery
-- **Git**: Controle de versão
+### 🏗️ **Data Engineering Stack**
+- **Big Data**: Apache Spark, Hadoop, Kafka
+- **Cloud**: AWS (S3, EMR, Glue), GCP (BigQuery, Dataflow), Azure (Synapse)
+- **Orchestration**: Apache Airflow, Prefect, Dagster
+- **Streaming**: Apache Kafka, Apache Flink, Kafka Streams
+- **Storage**: Delta Lake, Apache Iceberg, Apache Hudi
 
-### Avançadas
-- **Big Data**: Spark, Hadoop, Kafka
-- **Cloud**: AWS, GCP, Azure
-- **Viz**: Tableau, Power BI, Looker
-- **ML**: Scikit-learn, TensorFlow
+### 📊 **Data Analysis Stack**
+- **SQL**: PostgreSQL, MySQL, SQL Server
+- **Python**: Pandas, NumPy, Matplotlib, Seaborn
+- **BI Tools**: Tableau, Power BI, Looker, Metabase
+- **Statistics**: Scipy, Statsmodels, Scikit-learn
+
+### Essenciais para Ambos
+- **Version Control**: Git, GitHub/GitLab
+- **Containers**: Docker, Kubernetes
+- **Monitoring**: Prometheus, Grafana, DataDog
 
 ## 📈 **Roadmap de Carreira**
 
@@ -226,15 +312,25 @@ Este repositório contém um conjunto completo de guias, exemplos práticos e ex
 - Desenvolva habilidades de storytelling
 - Aprenda ferramentas de BI (Tableau/Power BI)
 
+### 🏗️ **Data Analyst → Data Engineer**
+- Foque em Python/SQL para ETL
+- Aprenda ferramentas de big data (Spark)
+- Desenvolva conhecimento em cloud e DevOps
+
 ### 📊 **Data Analyst → Data Scientist**
 - Adicione estatística e machine learning
 - Domine Python científico (scipy, sklearn)
 - Desenvolva capacidade de experimentação
 
-### 🏗️ **Data Analyst → Data Engineer**
-- Foque em Python/SQL para ETL
-- Aprenda ferramentas de big data (Spark)
-- Desenvolva conhecimento em cloud e DevOps
+### 🏗️ **Data Engineer → Senior Data Engineer**
+- Domine arquitetura de sistemas distribuídos
+- Aprenda design patterns para dados
+- Desenvolva expertise em performance tuning
+
+### 🏗️ **Data Engineer → Data Architect**
+- Foque em design de sistemas complexos
+- Desenvolva visão estratégica de dados
+- Aprenda governança e compliance
 
 ## 🤝 **Contribuições**
 
@@ -254,13 +350,14 @@ Este material está em constante evolução! Contribuições são bem-vindas:
 
 ## 📊 **Estatísticas do Repositório**
 
-- ✅ **5 Guias Completos**
-- 📝 **100+ Exemplos Práticos**
-- 🎯 **50+ Exercícios de Entrevista**
-- 🔍 **20+ Cenários Reais**
+- ✅ **6 Guias Completos** (incluindo Data Engineering)
+- 📝 **150+ Exemplos Práticos**
+- 🎯 **75+ Exercícios de Entrevista**
+- 🔍 **30+ Cenários Reais**
+- 🏗️ **Cobertura completa: Analysis + Engineering**
 
 ---
 
 **⭐ Se este material foi útil, deixe uma star! Compartilhe com outros profissionais que estão se preparando para entrevistas.**
 
-**🚀 Boa sorte em suas entrevistas! Com preparação adequada e prática consistente, você estará pronto para qualquer desafio técnico.** 
+**🚀 Boa sorte em suas entrevistas! Com preparação adequada e prática consistente, você estará pronto para qualquer desafio técnico, seja em Data Analysis ou Data Engineering!** 
